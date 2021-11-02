@@ -63,18 +63,19 @@
               <div>&bull;</div>
               <div class="text-gray-900">3 Comments</div>
             </div>
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2" x-data="{ isOpen: false }">
               <div
                 class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">
                 Open</div>
-              <button
+              <button @click="isOpen = !isOpen"
                 class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">
                 <svg fill="currentColor" width="24" height="6">
                   <path
                     d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
                     style="color: rgba(163, 163, 163, .5)">
                 </svg>
-                <ul
+                <ul x-cloak x-show.transation.origin.top.left="isOpen" @click.away="isOpen = false"
+                  @keydown.escape.window="isOpen = false"
                   class="absolute py-3 ml-8 font-semibold text-left bg-white w-44 shadow-dialog rounded-xl">
                   <li><a href="#"
                       class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark
@@ -135,7 +136,7 @@
             </div>
             <div class="flex items-center space-x-2">
               <div
-                class="w-auto px-4 py-2 font-bold leading-none text-center text-white uppercase rounded-full bg-yellow text-xxs h-7">
+                class="w-auto h-auto px-4 py-2 font-bold leading-none text-center text-white uppercase rounded-full bg-yellow text-xxs">
                 In Progress</div>
               <button
                 class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 rounded-full hover:bg-gray-200 h-7">

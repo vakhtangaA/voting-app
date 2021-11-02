@@ -25938,6 +25938,10 @@ select {
   -webkit-line-clamp: unset;
 }
 
+[x-cloack] {
+  display: none !important;
+}
+
 .comments-container::before {
   position: absolute;
   display: block;
