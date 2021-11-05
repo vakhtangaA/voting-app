@@ -21,11 +21,11 @@
 
 <body class="font-sans text-sm text-gray-900 bg-gray-background">
   <script>0</script>
-  <header class="flex items-center justify-between px-8 py-4">
+  <header class="flex flex-col items-center justify-between px-8 py-4 md:flex-row">
     <a href="#">
       <img src="{{ asset('img/logo.svg') }}" alt="logo">
     </a>
-    <div class="flex items-center">
+    <div class="flex items-center mt-2 md:mt-0">
       @if (Route::has('login'))
       <div class="px-6 py-4 ">
         @auth
@@ -55,11 +55,10 @@
       </a>
     </div>
   </header>
-  <main class="container flex mx-auto max-w-costum">
-    <div class="mr-5 w-70">
-      <div class="mt-16 bg-white border-2 border-blue rounded-xl" style="
+  <main class="container flex flex-col mx-auto max-w-costum md:flex-row">
+    <div class="mx-auto md:mr-5 md:mx-0 w-70">
+      <div class="mt-16 bg-white border-2 md:sticky top-8 border-blue rounded-xl" style="
                                                 border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
-                                                  border-image-slice: 1;
                                                   background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
                                                   background-origin: border-box;
                                                   background-clip: content-box, border-box;
@@ -107,8 +106,8 @@
         </form>
       </div>
     </div>
-    <div class="w-175">
-      <nav class="flex items-center justify-between text-xs">
+    <div class="w-full px-2 md:w-175 md:px-0">
+      <nav class="items-center justify-between hidden text-xs md:flex">
         <ul class="flex pb-3 space-x-10 font-semibold uppercase ">
           <li><a href="#" class="pb-3 border-b-4 border-blue">All Ideas (87)</a></li>
           <li><a href="#"
