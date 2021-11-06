@@ -12,8 +12,7 @@
     <div class="flex flex-col flex-1 px-4 py-6 md:flex-row">
       <div class="flex-none mx-4">
         <a href="#">
-          <img src="https://avatars.dicebear.com/api/female/dsa.svg?background=%230000ff"
-            alt="avatar" class="w-14 h-14 rounded-xl">
+          <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
         </a>
       </div>
       <div class="w-full mx-2">

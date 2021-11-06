@@ -55,8 +55,7 @@
       <div class="flex flex-col flex-1 px-2 py-6 md:flex-row">
         <div class="flex-none mx-4 md:mx-0">
           <a href="#">
-            <img src="https://avatars.dicebear.com/api/avataaars/ffsasf.svg" alt="avatar"
-              class="w-14 h-14 rounded-xl">
+            <img src="{{ $idea->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
           </a>
         </div>
         <div class="flex flex-col justify-between w-full mx-4">
