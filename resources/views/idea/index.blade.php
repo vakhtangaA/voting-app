@@ -80,8 +80,9 @@
             </div>
             <div class="flex items-center mt-2 space-x-2 md:mt-0" x-data="{ isOpen: false }">
               <div
-                class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">
-                Open</div>
+                class="{{ $idea->status->classes }} w-auto px-4 py-2 font-bold leading-none text-center uppercase h-auto rounded-full text-xxs">
+                {{ $idea->status->name }}
+              </div>
               <button @click="isOpen = !isOpen"
                 class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">
                 <svg fill="currentColor" width="24" height="6">
