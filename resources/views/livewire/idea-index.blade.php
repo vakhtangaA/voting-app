@@ -11,7 +11,7 @@
   class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container hover:shadow-card rounded-xl">
   <div class="hidden px-5 py-8 border-r border-gray-100 md:block">
     <div class="text-center">
-      <div class="text-2xl font-semibold">{{ $votes_count }}</div>
+      <div class="text-2xl font-semibold">{{ $votesCount }}</div>
       <div class="text-gray-500">Votes</div>
     </div>
 
@@ -73,7 +73,7 @@
         <div class="flex items-center mt-4 md:hidden md:mt-0">
           <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
             <div class="text-sm font-bold leading-none">
-              {{ $votes_count }}</div>
+              {{ $votesCount }}</div>
             <div class="font-semibold leading-none text-gray-400 text-xxs">
               Votes</div>
           </div>
