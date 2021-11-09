@@ -17,12 +17,12 @@
 
     <div class="mt-8">
       @if($hasVoted)
-      <button
+      <button wire:click.prevent="vote"
         class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue">
         Voted
       </button>
       @else
-      <button
+      <button wire:click.prevent="vote"
         class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400">
         Vote
       </button>
@@ -87,12 +87,12 @@
               Votes</div>
           </div>
           @if($hasVoted)
-          <button
+          <button wire:click.prevent="vote"
             class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue">
             Voted
           </button>
           @else
-          <button
+          <button wire:click.prevent="vote"
             class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400">
             Vote
           </button>
