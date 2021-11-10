@@ -19,7 +19,7 @@ class IdeaShow extends Component
 	{
 		$this->idea = $idea;
 		$this->votesCount = $votesCount;
-		$this->hasVoted = $idea->isVotedByUser(auth()->user());
+		$this->hasVoted = $idea->voted_by_user;
 	}
 
 	public function vote()
@@ -37,7 +37,7 @@ class IdeaShow extends Component
 			}
 			catch (VoteNotFoundException $e)
 			{
-				//throw $e;
+				// throw $e;
 			}
 
 			$this->votesCount--;

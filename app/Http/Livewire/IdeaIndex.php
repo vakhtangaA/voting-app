@@ -42,7 +42,7 @@ class IdeaIndex extends Component
 			}
 			catch (VoteNotFoundException $e)
 			{
-				//throw $e;
+				throw $e;
 			}
 
 			$this->votesCount--;
@@ -58,6 +58,7 @@ class IdeaIndex extends Component
 			{
 				//throw $th;
 			}
+
 			$this->votesCount++;
 			$this->hasVoted = true;
 		}
