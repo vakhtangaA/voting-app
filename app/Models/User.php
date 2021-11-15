@@ -72,4 +72,13 @@ class User extends Authenticatable
 		 . $intergerToUse
 		 . '.png';
 	}
+
+	public function isAdmin()
+	{
+		return in_array($this->email, [
+			'vakhtang.chitauri@gmail.com',
+			'vakhtang1.chitauri@gmail.com',
+			'vakhtang2.chitauri@gmail.com',
+		]);
+	}
 }
