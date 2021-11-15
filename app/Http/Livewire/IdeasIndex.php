@@ -40,6 +40,11 @@ class IdeasIndex extends Component
 		$this->status = $newStatus;
 	}
 
+	public function updatingFilter()
+	{
+		$this->resetPage();
+	}
+
 	public function updatingCategory()
 	{
 		$this->resetPage();
