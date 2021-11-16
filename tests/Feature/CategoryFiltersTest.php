@@ -18,35 +18,19 @@ class CategoryFiltersTest extends TestCase
 	/** @test */
 	public function selecting_a_category_filters_correctly()
 	{
-		$user = User::factory()->create();
-
 		$categoryOne = Category::factory()->create(['name' => 'Category 1']);
 		$categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
-		$statusOpen = Status::factory()->create(['name' => 'Open']);
-
 		$ideaOne = Idea::factory()->create([
-			'user_id'           => $user->id,
 			'category_id'       => $categoryOne->id,
-			'status_id'         => $statusOpen->id,
-			'title'             => 'My First Idea',
-			'description'       => 'Description for my first idea',
 		]);
 
 		$ideaTwo = Idea::factory()->create([
-			'user_id'           => $user->id,
 			'category_id'       => $categoryOne->id,
-			'status_id'         => $statusOpen->id,
-			'title'             => 'My First Idea',
-			'description'       => 'Description for my first idea',
 		]);
 
 		$ideaThree = Idea::factory()->create([
-			'user_id'           => $user->id,
 			'category_id'       => $categoryTwo->id,
-			'status_id'         => $statusOpen->id,
-			'title'             => 'My First Idea',
-			'description'       => 'Description for my first idea',
 		]);
 
 		Livewire::test(IdeasIndex::class)
