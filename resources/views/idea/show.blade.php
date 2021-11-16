@@ -10,6 +10,8 @@
 
   <livewire:idea-show :idea="$idea" :votesCount="$votesCount" />
 
+  <livewire:edit-idea />
+
   <div class="relative pt-4 my-8 mt-1 space-y-6 comments-container md:ml-22">
     <div class="relative flex mt-4 bg-white comment-container rounded-xl">
       <div class="flex flex-1 px-4 py-6">
@@ -113,10 +115,11 @@
         </div>
         <div class="w-full mx-4">
           <h4 class="text-xl font-semibold">
-            <a href="#" class="hover:underline">{{ $idea->title }}</a>
+            <a href="#" class="hover:underline">Holal comment</a>
           </h4>
           <div class="mt-3 text-gray-600 line-clamp-3">
-            {{ $idea->description }}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis perspiciatis id maxime
+            obcaecati! Minus et quisquam totam quasi,
           </div>
 
           <div class="flex items-center justify-between mt-6">
