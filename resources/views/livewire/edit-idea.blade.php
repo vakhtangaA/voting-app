@@ -1,4 +1,8 @@
-<div x-cloak @custom-show-edit-modal.window="isOpen = true" x-data="{ isOpen: false }"
+<div x-init="
+       window.livewire.on('ideaWasUpdated', () => {
+         isOpen = false;
+       })
+     " x-cloak @custom-show-edit-modal.window="isOpen = true" x-data="{ isOpen: false }"
   x-show="isOpen" @keydown.escape.window="isOpen = false" class="fixed inset-0 z-10 overflow-y-auto"
   aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <div class="flex items-end justify-center min-h-screen ">
@@ -22,7 +26,7 @@
         <p class="mt-4 text-xs leading-4 text-center text-gray-500">You have one hour to edit your
           idea from
           the time you created it.</p>
-        <form wire:submit.prevent="createIdea" action="#" method="POST" class="px-4 py-6 space-y-4">
+        <form wire:submit.prevent="updateIdea" action="#" method="POST" class="px-4 py-6 space-y-4">
           <div>
             <input type="text" wire:model.defer="title"
               class="w-full px-4 py-2 text-sm placeholder-gray-900 bg-gray-100 border-none rounded-xl"
@@ -35,7 +39,9 @@
 
             <select wire:model.defer="category" name="category_add" id="category_add"
               class="w-full px-4 py-2 text-sm bg-gray-100 border-none rounded-xl">
-              <option value="1">Category 1</option>
+              @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+              @endforeach
             </select>
           </div>
           @error('category')
@@ -61,7 +67,7 @@
             </button>
             <button type="submit"
               class="flex items-center justify-center w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border h-11 bg-blue rounded-xl border-blue hover:bg-blue-hover">
-              <span class="ml-1">Submit</span>
+              <span class="ml-1">Update</span>
             </button>
           </div>
         </form>
