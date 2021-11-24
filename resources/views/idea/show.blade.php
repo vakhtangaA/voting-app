@@ -29,7 +29,7 @@
             Lorem ipsum dolor sit amet consectetur.
           </div>
 
-          <div class="flex items-center justify-between mt-6" x-data="{isOpen: false}">
+          <div x-cloak class="flex items-center justify-between mt-6" x-data="{isOpen: false}">
             <div class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
               <div class="font-bold text-gray-900">John Doe</div>
               <div>&bull;</div>

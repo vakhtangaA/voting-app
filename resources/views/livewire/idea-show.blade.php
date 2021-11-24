@@ -37,11 +37,10 @@
                   d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
                   style="color: rgba(163, 163, 163, .5)">
               </svg>
-              <ul x-cloak x-show.transation.origin.top.left="isOpen" @click.away="isOpen = false"
+              <ul x-show.transition.origin.top.left="isOpen" @click.away="isOpen = false"
                 @keydown.escape.window="isOpen = false"
                 class="absolute right-0 z-20 py-3 font-semibold text-left bg-white md:ml-8 w-44 shadow-dialog rounded-xl top-8 lg:top-6 lg:left-0">
-                <li><a href="#"
-                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit
+                <li><a href="#" @click="$dispatch('custom-show-edit-modal')" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit
                     Idea</a></li>
                 <li><a href="#"
                     class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete
@@ -80,7 +79,7 @@
 
   <div class="flex items-center justify-between mt-6 buttons-container">
     <div class="flex flex-col items-center space-x-4 md:flex-row md:ml-6">
-      <div class="relative" x-data="{isOpen: false}">
+      <div x-cloak class="relative" x-data="{isOpen: false}">
         <button type="button" @click="isOpen = !isOpen"
           class="flex items-center justify-center w-32 px-6 py-3 text-sm font-semibold text-white transition duration-150 ease-in border h-11 bg-blue rounded-xl border-blue hover:bg-blue-hover">
           Reply
