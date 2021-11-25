@@ -27,6 +27,9 @@ class DeleteIdea extends Component
 
 		Idea::destroy($this->idea->id);
 
+        session()->flash('success_message', 'Idea was deleted successfully');
+
+
 		return redirect()->route('idea.index');
 	}
 
