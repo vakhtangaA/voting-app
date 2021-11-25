@@ -68,6 +68,7 @@ class IdeaPolicy
 	 */
 	public function delete(User $user, idea $idea)
 	{
+		return $user->id === (int) $idea->user_id || $user->isAdmin();
 	}
 
 	/**
