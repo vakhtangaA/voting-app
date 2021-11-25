@@ -11,6 +11,9 @@
           {{ $idea->title }}
         </h4>
         <div class="mt-3 text-gray-600">
+          @admin @if($idea->spam_reports > 0)
+          <div class="mb-2 text-red">Spam Reports: {{ $idea->spam_reports }}</div>
+          @endif @endadmin
           {{ $idea->description }}
         </div>
 
@@ -43,16 +46,18 @@
                 @can('update', $idea)
                 <li>
                   <a href="#" @click="$dispatch('custom-show-edit-modal')"
-                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit Idea</a>
-                  </li>
+                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit
+                    Idea</a>
+                </li>
                 @endcan
                 @can('delete', $idea)
                 <li>
                   <a href="#" @click="$dispatch('custom-show-delete-modal')"
-                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete Idea</a>
-                  </li>
-                  @endcan
-                <li><a href="#"
+                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete
+                    Idea</a>
+                </li>
+                @endcan
+                <li><a href="#" @click="$dispatch('custom-show-mark-as-spam-modal')"
                     class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark
                     as
                     Spam</a></li>
@@ -120,11 +125,9 @@
           </form>
         </div>
       </div>
-      @auth
-      @if(auth()->user()->isAdmin())
+      @admin
       <livewire:set-status :idea="$idea" />
-      @endif
-      @endauth
+      @endadmin
     </div>
 
     <div class="items-center hidden space-x-3 md:flex">

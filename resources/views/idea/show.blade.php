@@ -18,6 +18,9 @@
   <livewire:delete-idea :idea="$idea" />
   @endcan
 
+  <livewire:mark-idea-as-spam :idea="$idea" />
+
+
 
   <div class="relative pt-4 my-8 mt-1 space-y-6 comments-container md:ml-22">
     <div class="relative flex mt-4 bg-white comment-container rounded-xl">
