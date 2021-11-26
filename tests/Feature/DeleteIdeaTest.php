@@ -38,22 +38,6 @@ class DeleteIdeaTest extends TestCase
 	}
 
 	/** @test */
-	public function deleting_an_idea_shows_on_menu_when_user_has_authorization()
-	{
-		$user = User::factory()->create();
-		$idea = Idea::factory()->create([
-			'user_id' => $user->id,
-		]);
-
-		Livewire::actingAs($user)
-			->test(IdeaShow::class, [
-				'idea'       => $idea,
-				'votesCount' => 4,
-			])
-			->assertSee('Delete Idea', true);
-	}
-
-	/** @test */
 	public function deleting_an_idea_does_not_show_on_menu_when_user_does_not_have_authorization()
 	{
 		$user = User::factory()->create();
