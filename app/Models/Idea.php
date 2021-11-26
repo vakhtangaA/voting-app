@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Exceptions\DuplicateVoteException;
+use Illuminate\Database\Eloquent\Model;
 use App\Exceptions\VoteNotFoundException;
+use App\Exceptions\DuplicateVoteException;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
@@ -24,6 +24,11 @@ class Idea extends Model
 	public function votes()
 	{
 		return $this->belongsToMany(User::class, 'votes');
+	}
+
+	public function comments()
+	{
+		return $this->hasMany(Comment::class);
 	}
 
 	/**

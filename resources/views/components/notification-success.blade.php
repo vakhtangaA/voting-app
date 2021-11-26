@@ -1,9 +1,9 @@
 @props([
     'redirect' => false,
-    'messageToDisplay' => ''
+    'messageToDisplay' => '',
 ])
 
-<div x-cloak
+<div style="display: none;"
      x-data="{
         isOpen: false,
         messageToDisplay: '{{ $messageToDisplay }}'

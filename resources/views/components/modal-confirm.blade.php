@@ -1,4 +1,5 @@
-<div x-cloak
+<div 
+     style="display: none;"
      x-data="{ isOpen: false }"
      x-show="isOpen"
      @keydown.escape.window="isOpen = false"
