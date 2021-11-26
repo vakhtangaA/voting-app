@@ -3,7 +3,8 @@
 
   @forelse ($idea->comments as $comment)
     <livewire:idea-comment :key="$comment->id"
-                           :comment="$comment" />
+                           :comment="$comment"
+                           :ideaUserId="$idea->user->id" />
   @empty
     <p>
       No Comments yet..
