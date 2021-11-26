@@ -59,7 +59,7 @@
                 @can('update', $idea)
                   <li>
                     <a href="#"
-                       @click="$dispatch('custom-show-edit-modal')"
+                       @click.prevent="$dispatch('custom-show-edit-modal')"
                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit
                       Idea</a>
                   </li>
@@ -67,13 +67,13 @@
                 @can('delete', $idea)
                   <li>
                     <a href="#"
-                       @click="$dispatch('custom-show-delete-modal')"
+                       @click.prevent="$dispatch('custom-show-delete-modal')"
                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete
                       Idea</a>
                   </li>
                 @endcan
                 <li><a href="#"
-                     @click="$dispatch('custom-show-mark-as-spam-modal')"
+                     @click.prevent="$dispatch('custom-show-mark-as-spam-modal')"
                      class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark
                     as
                     Spam</a></li>
