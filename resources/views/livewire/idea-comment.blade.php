@@ -12,6 +12,12 @@
     <div class="w-full mx-4">
 
       <div class="text-gray-600 line-clamp-3">
+        @admin
+        @if ($comment->spam_reports > 0)
+          <div class="text-red mb-2">Spam Reports:
+            {{ $comment->spam_reports }}</div>
+        @endif
+        @endadmin
         {{ $comment->body }}
       </div>
 
@@ -74,11 +80,35 @@
                     </a>
                   </li>
                 @endcan
-                <li><a
+                <li>
+                  <a
                     href="#"
-                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
-                  >Mark
-                    as Spam</a></li>
+                    @click.prevent="
+                                          isOpen = false
+                                          Livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
+                                      "
+                    class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                  >
+                    Mark as Spam
+                  </a>
+                </li>
+
+                @admin
+                @if ($comment->spam_reports > 0)
+                  <li>
+                    <a
+                      href="#"
+                      @click.prevent="
+                                              isOpen = false
+                                              Livewire.emit('setMarkAsNotSpamComment', {{ $comment->id }})
+                                          "
+                      class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                    >
+                      Not Spam
+                    </a>
+                  </li>
+                @endif
+                @endadmin
               </ul>
             </button>
           </div>
