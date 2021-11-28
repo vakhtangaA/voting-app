@@ -61,8 +61,7 @@
                       href="#"
                       @click="Livewire.emit('setEditComment', {{ $comment->id }})"
                       class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
-                    >Edit
-                      Comment</a>
+                    >Edit Comment</a>
                   </li>
                 @endcan
                 @can('delete', $comment)
@@ -72,9 +71,9 @@
                       @click="Livewire.emit('setDeleteComment', {{ $comment->id }}) "
                       class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
                     >Delete Comment
-                      </a>
+                    </a>
                   </li>
-                 @endcan 
+                @endcan
                 <li><a
                     href="#"
                     class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"

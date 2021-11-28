@@ -83,7 +83,7 @@ class ShowCommentsTest extends TestCase
 			'body'    => 'This is my second comment',
 		]);
 
-		$response = $this->get(route('idea.show', $idea));
+		$response = $this->actingAs($user)->get(route('idea.show', $idea));
 
 		$response->assertSee('OP');
 	}
