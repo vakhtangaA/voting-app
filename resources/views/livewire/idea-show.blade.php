@@ -3,9 +3,11 @@
     <div class="flex flex-col flex-1 px-4 py-6 md:flex-row">
       <div class="flex-none mx-2">
         <a href="#">
-          <img src="{{ $idea->user->getAvatar() }}"
-               alt="avatar"
-               class="w-14 h-14 rounded-xl">
+          <img
+            src="{{ $idea->user->getAvatar() }}"
+            alt="avatar"
+            class="w-14 h-14 rounded-xl"
+          >
         </a>
       </div>
       <div class="w-full mx-2">
@@ -21,9 +23,11 @@
         </div>
 
         <div
-             class="flex flex-col justify-between mt-6 md:items-center md:flex-row">
+          class="flex flex-col justify-between mt-6 md:items-center md:flex-row"
+        >
           <div
-               class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
+            class="flex items-center space-x-2 text-xs font-semibold text-gray-400"
+          >
             <div class="hidden font-bold text-gray-900 md:block">
               {{ $idea->user->name }}</div>
             <div class="hidden md:block">&bull;</div>
@@ -38,43 +42,59 @@
             <div class="text-gray-900">
               {{ $idea->comments()->count() }} comments</div>
           </div>
-          <div class="flex items-center mt-4 space-x-2 md:mt-0"
-               x-data="{ isOpen: false }">
+          <div
+            class="flex items-center mt-4 space-x-2 md:mt-0"
+            x-data="{ isOpen: false }"
+          >
             <div
-                 class="{{ $idea->status->classes }} px-4 py-2 font-bold leading-none text-center uppercase rounded-full text-xxs w-auto h-auto">
-              {{ $idea->status->name }}</div>
-            <button @click="isOpen = !isOpen"
-                    class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">
-              <svg fill="currentColor"
-                   width="24"
-                   height="6">
-                <path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
-                      style="color: rgba(163, 163, 163, .5)">
+              class="{{ 'status-' . Str::kebab($idea->status->name) }} text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4"
+            >{{ $idea->status->name }}</div>
+            <button
+              @click="isOpen = !isOpen"
+              class="relative px-3 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7"
+            >
+              <svg
+                fill="currentColor"
+                width="24"
+                height="6"
+              >
+                <path
+                  d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
+                  style="color: rgba(163, 163, 163, .5)"
+                >
               </svg>
-              <ul style="display: none;"
-                  x-show.transition.origin.top.left="isOpen"
-                  @click.away="isOpen = false"
-                  @keydown.escape.window="isOpen = false"
-                  class="absolute right-0 z-20 py-3 font-semibold text-left bg-white md:ml-8 w-44 shadow-dialog rounded-xl top-8 lg:top-6 lg:left-0">
+              <ul
+                style="display: none;"
+                x-show.transition.origin.top.left="isOpen"
+                @click.away="isOpen = false"
+                @keydown.escape.window="isOpen = false"
+                class="absolute right-0 z-20 py-3 font-semibold text-left bg-white md:ml-8 w-44 shadow-dialog rounded-xl top-8 lg:top-6 lg:left-0"
+              >
                 @can('update', $idea)
                   <li>
-                    <a href="#"
-                       @click.prevent="$dispatch('custom-show-edit-modal')"
-                       class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Edit
+                    <a
+                      href="#"
+                      @click.prevent="$dispatch('custom-show-edit-modal')"
+                      class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                    >Edit
                       Idea</a>
                   </li>
                 @endcan
                 @can('delete', $idea)
                   <li>
-                    <a href="#"
-                       @click.prevent="$dispatch('custom-show-delete-modal')"
-                       class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Delete
+                    <a
+                      href="#"
+                      @click.prevent="$dispatch('custom-show-delete-modal')"
+                      class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                    >Delete
                       Idea</a>
                   </li>
                 @endcan
-                <li><a href="#"
-                     @click.prevent="$dispatch('custom-show-mark-as-spam-modal')"
-                     class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">Mark
+                <li><a
+                    href="#"
+                    @click.prevent="$dispatch('custom-show-mark-as-spam-modal')"
+                    class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100"
+                  >Mark
                     as
                     Spam</a></li>
 
@@ -83,23 +103,30 @@
           </div>
           <div class="flex items-center mt-4 md:hidden md:mt-0">
             <div
-                 class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
+              class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl"
+            >
               <div
-                   class="text-sm font-bold leading-none {{ $hasVoted ? 'text-blue' : '' }}">
+                class="text-sm font-bold leading-none {{ $hasVoted ? 'text-blue' : '' }}"
+              >
                 {{ $votesCount }}</div>
               <div
-                   class="font-semibold leading-none text-gray-400 text-xxs">
+                class="font-semibold leading-none text-gray-400 text-xxs"
+              >
                 Votes</div>
             </div>
 
             @if ($hasVoted)
-              <button wire:click.prevent="vote"
-                      class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue">
+              <button
+                wire:click.prevent="vote"
+                class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue"
+              >
                 Voted
               </button>
             @else
-              <button wire:click.prevent="vote"
-                      class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400">
+              <button
+                wire:click.prevent="vote"
+                class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400"
+              >
                 Vote
               </button>
             @endif
@@ -110,9 +137,11 @@
   </div>
 
   <div
-       class="flex items-center justify-between mt-6 buttons-container">
+    class="flex items-center justify-between mt-6 buttons-container"
+  >
     <div
-         class="flex flex-col items-center space-x-4 md:flex-row md:ml-6">
+      class="flex flex-col items-center space-x-4 md:flex-row md:ml-6"
+    >
       <livewire:add-comment :idea="$idea" />
       @admin
       <livewire:set-status :idea="$idea" />
@@ -121,22 +150,28 @@
 
     <div class="items-center hidden space-x-3 md:flex">
       <div
-           class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
+        class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl"
+      >
         <div
-             class="text-sm font-bold leading-none {{ $hasVoted ? 'text-blue' : '' }}">
+          class="text-sm font-bold leading-none {{ $hasVoted ? 'text-blue' : '' }}"
+        >
           {{ $votesCount }}</div>
         <div
-             class="font-semibold leading-none text-gray-400 text-xxs">
+          class="font-semibold leading-none text-gray-400 text-xxs">
           Votes</div>
       </div>
       @if ($hasVoted)
-        <button wire:click.prevent="vote"
-                class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue">
+        <button
+          wire:click.prevent="vote"
+          class="w-20 px-4 py-3 -mx-5 font-bold text-white uppercase transition duration-150 ease-in border bg-blue border-blue text-xxs rounded-xl hover:border-blue"
+        >
           Voted
         </button>
       @else
-        <button wire:click.prevent="vote"
-                class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400">
+        <button
+          wire:click.prevent="vote"
+          class="w-20 px-4 py-3 -mx-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 text-xxs rounded-xl hover:border-gray-400"
+        >
           Vote
         </button>
       @endif

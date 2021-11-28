@@ -2,16 +2,19 @@
 
 namespace App\Http\Livewire;
 
-use App\Jobs\NotifyAllVoters;
 use App\Models\Idea;
-use Facade\FlareClient\Http\Response;
+use App\Models\Comment;
 use Livewire\Component;
+use App\Jobs\NotifyAllVoters;
+use Facade\FlareClient\Http\Response;
 
 class SetStatus extends Component
 {
 	public $idea;
 
 	public $status;
+
+	public $comment;
 
 	public $notifyAllVoters;
 
@@ -36,6 +39,16 @@ class SetStatus extends Component
 		{
 			NotifyAllVoters::dispatch($this->idea);
 		}
+
+		Comment::create([
+			'user_id'          => auth()->id(),
+			'idea_id'          => $this->idea->id,
+			'status_id'        => $this->status,
+			'body'             => $this->comment ?? 'No comment was added.',
+			'is_status_update' => true,
+		]);
+
+		$this->reset('comment');
 
 		$this->emit('statusWasUpdated');
 	}
