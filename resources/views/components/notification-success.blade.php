@@ -37,6 +37,13 @@
                     isOpen = false
                 }, 5000)
             })
+            Livewire.on('commentWasDeleted', message => {
+                isOpen = true
+                messageToDisplay = message
+                setTimeout(() => {
+                    isOpen = false
+                }, 5000)
+            })
         "
      x-show="isOpen"
      x-transition:enter="transition ease-out duration-300"
