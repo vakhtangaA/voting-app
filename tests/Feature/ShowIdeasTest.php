@@ -25,8 +25,8 @@ class ShowIdeasTest extends TestCase
 			'name' => 'Category 2',
 		]);
 
-		$statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-		$statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+		$statusOpen = Status::factory()->create(['name' => 'Open']);
+		$statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
 		$ideaOne = Idea::factory()->create([
 			'user_id'     => $user->id,
@@ -68,8 +68,8 @@ class ShowIdeasTest extends TestCase
 			'name' => 'Category 2',
 		]);
 
-		$statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-		$statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+		$statusOpen = Status::factory()->create(['name' => 'Open']);
+		$statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
 		$ideaOne = Idea::factory()->create([
 			'user_id'     => $user->id,
@@ -107,8 +107,8 @@ class ShowIdeasTest extends TestCase
 			'name' => 'Category 2',
 		]);
 
-		$statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-		$statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+		$statusOpen = Status::factory()->create(['name' => 'Open']);
+		$statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
 		$ideaOne = Idea::factory()->create([
 			'user_id'     => $user->id,
@@ -136,8 +136,8 @@ class ShowIdeasTest extends TestCase
 			'name' => 'Category 2',
 		]);
 
-		$statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-		$statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+		$statusOpen = Status::factory()->create(['name' => 'Open']);
+		$statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
 		$ideaOne = Idea::factory()->create([
 			'user_id'     => $user->id,
