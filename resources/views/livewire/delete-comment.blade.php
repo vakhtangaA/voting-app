@@ -6,4 +6,3 @@
   modal-confirm-button-text="Delete"
   wire-click="deleteComment"
 />
-
