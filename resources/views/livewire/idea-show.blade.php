@@ -47,7 +47,7 @@
             x-data="{ isOpen: false }"
           >
             <div
-              class="{{ 'status-' . Str::kebab($idea->status->name) }} text-xxs font-bold uppercase leading-none rounded-full text-center w-auto h-7 py-2 px-4"
+              class="{{ 'status-' . Str::kebab($idea->status->name) }} text-xxs font-bold uppercase leading-none rounded-full text-center w-auto h-auto py-2 px-4"
             >{{ $idea->status->name }}</div>
             <button
               @click="isOpen = !isOpen"
