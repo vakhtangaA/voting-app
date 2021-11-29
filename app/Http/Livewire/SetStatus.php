@@ -31,6 +31,11 @@ class SetStatus extends Component
 			abort(Response::HTTP_FORBIDDEN);
 		}
 
+		if ($this->idea->status_id === $this->status)
+		{
+			return;
+		}
+
 		$this->idea->status_id = $this->status;
 
 		$this->idea->save();

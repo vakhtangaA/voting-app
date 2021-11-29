@@ -118,7 +118,6 @@ class CommentNotificationTest extends TestCase
 		$this->assertEquals(0, $user->fresh()->unreadNotifications->count());
 	}
 
-
 	/** @test */
 	public function notification_idea_deleted_redirects_to_index_page()
 	{
@@ -134,7 +133,6 @@ class CommentNotificationTest extends TestCase
 			->set('comment', 'This is the first comment')
 			->call('addComment');
 
-		$idea->comments()->delete();
 		$idea->delete();
 
 		Livewire::actingAs($user)
