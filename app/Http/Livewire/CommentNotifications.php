@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
+use Illuminate\Notifications\DatabaseNotification;
 use Livewire\Component;
 
 class CommentNotifications extends Component
@@ -44,6 +46,33 @@ class CommentNotifications extends Component
 		->get();
 
 		$this->isLoading = false;
+	}
+
+	public function markAsRead($notificationId)
+	{
+		$notification = DatabaseNotification::findOrFail($notificationId);
+
+		$notification->markAsRead();
+
+		$comment = Comment::find($notification->data['comment_id']);
+
+		if (!$comment)
+		{
+			session()->flash('success_message', 'This comment no longer exists!');
+
+			return redirect()->route('idea.index');
+		}
+
+		return redirect()->route('idea.show', [
+			'idea' => $notification->data['idea_slug'],
+		]);
+	}
+
+	public function markAllAsRead()
+	{
+		auth()->user()->unreadNotifications->markAsRead();
+		$this->getNotificationCount();
+		$this->getNotifications();
 	}
 
 	public function render()
